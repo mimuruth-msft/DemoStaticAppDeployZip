@@ -1,22 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './App.css'; // Import CSS file for styling
 
 function App() {
-  const value = 'World';
+  const [name, setName] = useState('');
+  const [count, setCount] = useState(0);
+
+  const handleInputChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    setCount(count + 1);
+  };
+
   return (
-    <div>
-      <h1>Hello {value}</h1>
-      <p>Welcome to our demo website!</p>
-      <p>This is a simple React application.</p>
-      <p>Feel free to explore the features.</p>
-      <ul>
-        <li>Feature 1</li>
-        <li>Feature 2</li>
-        <li>Feature 3</li>
-      </ul>
-      <p>Thank you for visiting!</p>
+    <div className="container">
+      <header>
+        <h1>TechXperience</h1>
+      </header>
+      <main>
+        <section className="intro">
+          <h2>Welcome to TechXperience!</h2>
+          <p>Explore the latest in technology innovation and trends.</p>
+          <p>Enter your name to get started:</p>
+          <input type="text" value={name} onChange={handleInputChange} placeholder="Enter your name" />
+          <button onClick={handleButtonClick}>Start Exploring</button>
+          <p>You've clicked the button {count} times.</p>
+        </section>
+        <section className="features">
+          <h2>Featured Technologies</h2>
+          <ul>
+            <li>Artificial Intelligence</li>
+            <li>Blockchain</li>
+            <li>Internet of Things (IoT)</li>
+            <li>Augmented Reality (AR)</li>
+            <li>Virtual Reality (VR)</li>
+          </ul>
+        </section>
+      </main>
+      <footer>
+        <p>© 2024 TechXperience. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
 
 export default App;
+
+
 
